@@ -19,6 +19,6 @@ These algorithms are very simplistic to maintain readability. Mostly just for lo
 
 ## Useful links
 
-* [original transcript][http://www.elonka.com/kryptos/transcript.html]
+* [original transcript](http://www.elonka.com/kryptos/transcript.html)
 * [Vigenere cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
 * [details for solution K3](http://www.thekryptosproject.com/tjp/observations/k3_method.php)
