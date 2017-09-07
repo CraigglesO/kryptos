@@ -1,0 +1,4 @@
+const letterFrequency = require('letter-frequency');
+
+let x = letterFrequency('OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR');
+console.log(x);
