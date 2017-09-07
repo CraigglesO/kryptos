@@ -8,35 +8,26 @@
 // ithinemergedfromthemistxcanyouseeanythingq
 // 42 x 8
 
-// let ciphertext = 'slowlydesparatlyslowlytheremainsofpassagedebristhatencumberedthelowerpartofthedoorwaywasremovedwithtremblinghandsimadeatinybreachintheupperlefthandcornerandthenwideningtheholealittleiinsertedthecandleandpeeredinthehotairescapingfromthechambercausedtheflametoflickerbutpresentlydetailsoftheroomwithinemergedfromthemistxcanyouseeanythingq';
-let ciphertext = 'SLOWLYDESPARATLYSLOWLYTHEREMAINSOFPASSAGEDEBRISTHATENCUMBEREDTHELOWERPARTOFTHEDOORWAYWASREMOVEDWITHTREMBLINGHANDSIMADEATINYBREACHINTHEUPPERLEFTHANDCORNERANDTHENWIDENINGTHEHOLEALITTLEIINSERTEDTHECANDLEANDPEEREDINTHEHOTAIRESCAPINGFROMTHECHAMBERCAUSEDTHEFLAMETOFLICKERBUTPRESENTLYDETAILSOFTHEROOMWITHINEMERGEDFROMTHEMISTXCANYOUSEEANYTHINGQ';
+let plaintext = 'SLOWLYDESPARATLYSLOWLYTHEREMAINSOFPASSAGEDEBRISTHATENCUMBEREDTHELOWERPARTOFTHEDOORWAYWASREMOVEDWITHTREMBLINGHANDSIMADEATINYBREACHINTHEUPPERLEFTHANDCORNERANDTHENWIDENINGTHEHOLEALITTLEIINSERTEDTHECANDLEANDPEEREDINTHEHOTAIRESCAPINGFROMTHECHAMBERCAUSEDTHEFLAMETOFLICKERBUTPRESENTLYDETAILSOFTHEROOMWITHINEMERGEDFROMTHEMISTXCANYOUSEEANYTHINGQ';
 
-ciphertext = ciphertext.split('');
-let matrix = [];
-
-
+plaintext = plaintext.split('');
 // first we make a 42 x 8:
-for (let i = 0; i < 8; i++) {
-  matrix.push([]);
-  for (let j = 0; j < 42; j++) {
-    matrix[i].push(ciphertext.shift());
-  }
-}
+let matrix = resize(plaintext, 42, 8);
 
 // rotate 90deg clockwise
-matrix = rotateClockWise(matrix);
+matrix = rotateClockwise(matrix);
 
 // resize to 14 x 24
 matrix = resize(matrix, 14, 24);
 
 // rotate clockwise one more time
-matrix = rotateClockWise(matrix);
+matrix = rotateClockwise(matrix);
 
 // lastly reformat to a 31 x 14 (uneccessary)
 matrix = resize(matrix, 31, 14);
 
 
-// FINAL PRODUCT:
+// Print the result:
 for (let i = 0; i < 14; i++) {
   console.log(matrix[i].join(''));
 }
@@ -55,24 +46,10 @@ for (let i = 0; i < 14; i++) {
 // ???????????????????????????????
 // ???????????????????????????????
 // ???????????????????????????????
-// ENDYAHROHNLSRHEOCPTEOIBIDYSHNAIA
-// CHTNREYULDSLLSLLNOHSNOSMRWXMNE
-// TPRNGATIHNRARPESLNNELEBLPIIACAE
-// WMTWNDITEENRAHCTENEUDRETNHAEOE
-// TFOLSEDTIWENHAEIOYTEYQHEENCTAYCR
-// EIFTBRSPAMHHEWENATAMATEGYEERLB
-// TEEFOASFIOTUETUAEOTOARMAEERTNRTI
-// BSEDDNIAAHTTMSTEWPIEROAGRIEWFEB
-// AECTDDHILCEIHSITEGOEAOSDDRYDLORIT
-// RKLMLEHAGTDHARDPNEOHMGFMFEUHE
-// ECDMRIPFEIMEHNLSSTTRTVDOHW?OBKR
-// UOXOGHULBSOLIFBBWFLRVQQPRNGKSSO
-// TWTQSJQSSEKZZWATJKLUDIAWINFBNYP
-// VTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
 
 
 
-function rotateClockWise(matrix) {
+function rotateClockwise(matrix) {
   let newMatrix    = [];
   let rowLength    = matrix[0].length;
   let columnLength = matrix.length;
