@@ -11,17 +11,12 @@ char_num = {
   'Z': 25
 };
 
-function modulo(n, m) {
-  return ((n % m) + m) % m;
-}
-
 module.exports.encrypt = function (m, k) {
   m = m.toUpperCase();
-  k = k.toUpperCase();
-  c = '';
+  let c = '';
 
   for (let i = 0; i < m.length; i++) {
-    num = (char_num[m[i]] + char_num[k[i % k.length]]) % 26;
+    num = (13 + char_num[m[i]]) % 26;
     c += num_char[num];
   }
 
@@ -29,14 +24,12 @@ module.exports.encrypt = function (m, k) {
 }
 
 module.exports.decrypt = function (m, k) {
-  m = m.toUpperCase();
-  k = k.toUpperCase();
-  s = '';
-
-  for (let i = 0; i < m.length; i++) {
-    num = modulo((char_num[m[i]] - char_num[k[i % k.length]]), 26);
-    s += num_char[num];
-  }
-
-  return s;
+  return module.exports.encrypt(m, k);
 }
+
+// let m = "thisisatest";
+// let c = module.exports.encrypt(m);
+// let sol = module.exports.encrypt(c);
+//
+// console.log("c", c);
+// console.log("sol", sol);

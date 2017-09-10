@@ -18,10 +18,10 @@ function modulo(n, m) {
 module.exports.encrypt = function (m, k) {
   m = m.toUpperCase();
   k = k.toUpperCase();
-  c = '';
+  let c = '';
 
   for (let i = 0; i < m.length; i++) {
-    num = (char_num[m[i]] + char_num[k[i % k.length]]) % 26;
+    num = modulo((char_num[k[i % k.length]] - char_num[m[i]]), 26);
     c += num_char[num];
   }
 
@@ -29,14 +29,5 @@ module.exports.encrypt = function (m, k) {
 }
 
 module.exports.decrypt = function (m, k) {
-  m = m.toUpperCase();
-  k = k.toUpperCase();
-  s = '';
-
-  for (let i = 0; i < m.length; i++) {
-    num = modulo((char_num[m[i]] - char_num[k[i % k.length]]), 26);
-    s += num_char[num];
-  }
-
-  return s;
+  return module.exports.encrypt(m, k);
 }
